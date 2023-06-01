@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: airflow-aula-fia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: airflow-aula-fia
+  template:
+    metadata:
+      labels:
+        component: airflow-aula-fia
+    spec:
+      containers:
+        - name: airflow-aula-fia
+          image: ferrettivinicius/airflow-aula-fia:latest
+          ports:
+            - containerPort: 8085
+            - containerPort: 8086

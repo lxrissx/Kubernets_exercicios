@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: airflow-aula-fia
+spec:
+  ports:
+    - name: webui
+      port: 8085
+      targetPort: 8085
+    - name: airflow-aula-fia
+      port: 8086
+      targetPort: 8086
+  selector:
+    component: airflow-aula-fia

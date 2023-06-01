@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hadoop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: hadoop
+  template:
+    metadata:
+      labels:
+        component: hadoop
+    spec:
+      containers:
+        - name: hadoop
+          image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
+          ports:
+            - containerPort: 9870
+            - containerPort: 9000
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              cpu: 100m
